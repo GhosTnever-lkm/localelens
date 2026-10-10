@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#10131b">
+  <meta name="description" content="LocaleLens локально сравнивает JSON и ARB каталоги переводов: ключи, пустые строки и плейсхолдеры.">
+  <title>LocaleLens — проверка переводов</title><link rel="icon" href="./icon.svg" type="image/svg+xml"><link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="#top"><span class="mark">L</span><span>Locale<span>Lens</span><small>LOCALIZATION QA</small></span></a><div class="local"><i></i>Файлы не покидают устройство</div></header>
+  <main id="top" class="shell">
+    <section class="hero"><div><p class="eyebrow">ПРОВЕРКА ПЕРЕД СЛИЯНИЕМ И РЕЛИЗОМ</p><h1>Переводы готовы.<br><em>Ключи на месте?</em></h1><p>Сравни исходный и целевой JSON/ARB-каталоги. Найди пропуски, лишние ключи, пустые значения и сломанные переменные до того, как это увидит пользователь.</p><button id="demo" class="button ghost">Загрузить пример</button></div><div class="hero-note"><b>01 / COMPARE</b><span>Источник<br>Целевой язык<br>Разбор</span><i></i></div></section>
+    <section class="inputs" aria-label="Файлы каталогов">
+      <label class="file-card"><span class="file-kicker">01 · ИСХОДНЫЙ ЯЗЫК</span><strong id="source-name">Выбрать JSON / ARB</strong><small>Например, en.json</small><input id="source-file" type="file" accept=".json,.arb,application/json"></label>
+      <label class="file-card target"><span class="file-kicker">02 · ЦЕЛЕВОЙ ЯЗЫК</span><strong id="target-name">Выбрать JSON / ARB</strong><small>Например, ru.json</small><input id="target-file" type="file" accept=".json,.arb,application/json"></label>
+      <button id="compare" class="button primary" disabled>Сравнить каталоги <span>→</span></button>
+    </section>
+    <section id="results" hidden>
+      <div class="summary"><div><p class="eyebrow">ОТЧЁТ СРАВНЕНИЯ</p><h2 id="summary-title">Результаты</h2><p id="summary-copy"></p></div><div class="counts"><div><b id="errors">0</b><small>ошибок</small></div><div><b id="warnings">0</b><small>предупреждений</small></div><div><b id="notices">0</b><small>лишних ключей</small></div></div></div>
+      <div class="toolbar"><input id="search" type="search" placeholder="Найти ключ…" aria-label="Поиск по ключам"><select id="filter" aria-label="Фильтр находок"><option value="all">Все находки</option><option value="error">Ошибки</option><option value="warning">Предупреждения</option><option value="notice">Лишние ключи</option></select><button id="export-json" class="button ghost">JSON</button><button id="export-csv" class="button ghost">CSV</button></div>
+      <div class="table-wrap"><table><thead><tr><th>Тип</th><th>Ключ</th><th>Проблема</th><th>Исходное значение</th><th>Целевое значение</th></tr></thead><tbody id="rows"></tbody></table><div id="empty" class="empty" hidden>По этому фильтру находок нет.</div></div>
+      <p class="scope">Проверяются JSON-структура, наличие ключей, типы значений, пустые строки и простые переменные `{name}`, printf `%s` и `%(name)d`. Сложные ICU plural-ветки и содержание перевода не оцениваются.</p>
+    </section>
+    <footer>LOCALELENS · VERSION 0.1.0 <span>Обработка в этой вкладке · MIT</span><a href="https://github.com/GhosTnever-lkm">GHOSTNEVER ↗</a></footer>
+  </main><div id="toast" role="status" aria-live="polite"></div><script type="module" src="./app.mjs"></script>
+</body></html>

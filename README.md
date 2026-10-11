@@ -14,7 +14,7 @@ Open <http://127.0.0.1:4183>. Load two `.json` or `.arb` files or use the built-
 
 ## Download
 
-Download `LocaleLens-v0.1.1.zip` from the [latest release](https://github.com/GhosTnever-lkm/localelens/releases/latest), then open `index.html` in a modern browser.
+Download `LocaleLens-v0.1.2.zip` from the [latest release](https://github.com/GhosTnever-lkm/localelens/releases/latest), then open `index.html` in a modern browser.
 
 ## Checks
 

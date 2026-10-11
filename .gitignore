@@ -1,0 +1,18 @@
+# Node and test outputs
+node_modules/
+coverage/
+.nyc_output/
+dist/
+build/
+
+# Local runtime and environment data
+.env
+.env.*
+!.env.example
+*.log
+
+# Operating systems and editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

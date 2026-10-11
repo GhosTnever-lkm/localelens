@@ -1,3 +1,7 @@
+## 0.1.3 - 2026-10-11
+
+- Add project-specific ignore rules for local Node, test, environment, OS, and editor artifacts.
+
 # Changelog
 
 ## 0.1.2 - 2026-10-11

@@ -2,6 +2,8 @@
 
 LocaleLens is a local-first checker for JSON and ARB localization catalogs. Compare a source catalog with a translated one and inspect missing keys, target-only keys, empty values, type mismatches, and interpolation placeholder differences.
 
+![LocaleLens: localization catalog comparison](docs/screenshot.png)
+
 ## Run locally
 
 Requires Node.js 20 or newer. No package installation is needed.

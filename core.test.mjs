@@ -10,6 +10,13 @@ test('flattens nested JSON keys into stable dotted paths', () => {
   assert.equal(parsed.entries.get('menu.count'), 3);
 });
 
+test('rejects collisions between dotted literal keys and flattened nested keys', () => {
+  assert.throws(
+    () => catalog({ 'menu.file': 'Literal', menu: { file: 'Nested' } }, 'en.json'),
+    /неоднозначный ключ.*menu\.file/,
+  );
+});
+
 test('ignores ARB locale and description metadata', () => {
   const parsed = catalog({ '@@locale': 'en', title: 'Title', '@title': { description: 'Page heading' } });
   assert.deepEqual([...parsed.entries.keys()], ['title']);

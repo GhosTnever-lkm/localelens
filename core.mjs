@@ -12,7 +12,10 @@ export function parseCatalog(text, filename = 'catalog.json') {
       if (key === '@@locale' || key.startsWith('@')) continue;
       const path = prefix ? `${prefix}.${key}` : key;
       if (child && typeof child === 'object' && !Array.isArray(child)) walk(child, path);
-      else entries.set(path, child);
+      else {
+        if (entries.has(path)) throw new Error(`${filename}: неоднозначный ключ после разворачивания: ${path}`);
+        entries.set(path, child);
+      }
     }
   };
   walk(value);

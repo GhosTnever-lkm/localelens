@@ -9,7 +9,7 @@ export function parseCatalog(text, filename = 'catalog.json') {
   const entries = new Map();
   const walk = (node, prefix = '') => {
     for (const [key, child] of Object.entries(node)) {
-      if (key === '@@locale' || key.startsWith('@')) continue;
+      if (prefix === '' && (key === '@@locale' || key.startsWith('@'))) continue;
       const path = prefix ? `${prefix}.${key}` : key;
       if (child && typeof child === 'object' && !Array.isArray(child)) walk(child, path);
       else {

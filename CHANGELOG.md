@@ -4,6 +4,10 @@
 
 # Changelog
 
+## 0.1.5 - 2026-10-13
+
+- Preserve nested JSON keys beginning with `@`; only top-level ARB metadata is ignored.
+
 ## 0.1.4 - 2026-10-11
 
 - Add a real screenshot of the app to the README.

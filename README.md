@@ -16,7 +16,7 @@ Open <http://127.0.0.1:4183>. Load two `.json` or `.arb` files or use the built-
 
 ## Download
 
-Download the **Source code (zip)** archive from the [latest release](https://github.com/GhosTnever-lkm/localelens/releases/latest), then open `index.html` in a modern browser.
+Download the **Source code (zip)** archive from the [latest release](https://github.com/GhosTnever-lkm/localelens/releases/latest), extract it, then run `npm start` from the extracted folder and open <http://127.0.0.1:4183>.
 
 ## Checks
 

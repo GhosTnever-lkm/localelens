@@ -37,6 +37,11 @@ test('finds placeholder and type mismatches', () => {
   assert.deepEqual(result.map(row => row.code), ['type', 'placeholder']);
 });
 
+test('distinguishes null and array JSON value types', () => {
+  const result = compareCatalogs(catalog({ list: [], nil: null }), catalog({ list: null, nil: [] }));
+  assert.deepEqual(result.map(({ key, code }) => [key, code]), [['list', 'type'], ['nil', 'type']]);
+});
+
 test('rejects malformed JSON, array roots and oversize input', () => {
   assert.throws(() => parseCatalog('{', 'bad.json'), /Некорректный JSON/);
   assert.throws(() => parseCatalog('[]'), /JSON-объект/);

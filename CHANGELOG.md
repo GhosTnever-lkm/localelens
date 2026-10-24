@@ -4,6 +4,12 @@
 
 # Changelog
 
+## 0.1.6 - 2026-10-25
+
+- Detect mismatches between JSON null and array values.
+- Show the current package version in the app footer.
+- Clarify how to run the downloaded source archive.
+
 ## 0.1.5 - 2026-10-13
 
 - Preserve nested JSON keys beginning with `@`; only top-level ARB metadata is ignored.

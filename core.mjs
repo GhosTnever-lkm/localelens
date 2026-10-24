@@ -38,6 +38,12 @@ function placeholders(value) {
 
 function sameList(a, b) { return a.length === b.length && a.every((value, index) => value === b[index]); }
 
+function jsonType(value) {
+  if (value === null) return 'null';
+  if (Array.isArray(value)) return 'array';
+  return typeof value;
+}
+
 export function compareCatalogs(source, target) {
   const findings = [];
   for (const key of source.entries.keys()) {
@@ -46,7 +52,7 @@ export function compareCatalogs(source, target) {
       continue;
     }
     const left = source.entries.get(key); const right = target.entries.get(key);
-    if (typeof left !== typeof right) {
+    if (jsonType(left) !== jsonType(right)) {
       findings.push({ key, code: 'type', severity: 'error', source: left, target: right, message: 'Тип значения отличается от исходного' });
     } else if (typeof right === 'string' && right.trim() === '') {
       findings.push({ key, code: 'empty', severity: 'warning', source: left, target: right, message: 'Перевод пустой или состоит из пробелов' });

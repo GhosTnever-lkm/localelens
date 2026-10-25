@@ -28,7 +28,7 @@ function placeholders(value) {
   const patterns = [
     /\{\s*([A-Za-z_$][\w$.-]*)\s*(?:,\s*(?:plural|select|selectordinal)\b[^}]*)?\}/g,
     /%\(([A-Za-z_][\w.-]*)\)[#0 +\-]*(?:\d+|\*)?(?:\.(?:\d+|\*))?[a-zA-Z]/g,
-    /%(?:\d+\$)?[#0 +\-]*(?:\d+|\*)?(?:\.(?:\d+|\*))?[sdif]/g
+    /%(?:\d+\$)?[#0+\-]*(?:\d+|\*)?(?:\.(?:\d+|\*))?[sdif]/g
   ];
   for (const pattern of patterns) {
     for (const match of value.matchAll(pattern)) found.push(match[1] ? `{${match[1]}}` : match[0]);

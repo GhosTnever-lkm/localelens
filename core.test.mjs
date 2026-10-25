@@ -32,6 +32,11 @@ test('matches named and printf placeholders independent of order', () => {
   assert.equal(result.length, 0);
 });
 
+test('does not treat a literal percent followed by a word as a printf placeholder', () => {
+  const result = compareCatalogs(catalog({ progress: '100% sure' }), catalog({ progress: '100% готовы' }));
+  assert.deepEqual(result, []);
+});
+
 test('finds placeholder and type mismatches', () => {
   const result = compareCatalogs(catalog({ msg: 'Hello {name}', count: 'one' }), catalog({ msg: 'Привет', count: 1 }));
   assert.deepEqual(result.map(row => row.code), ['type', 'placeholder']);
